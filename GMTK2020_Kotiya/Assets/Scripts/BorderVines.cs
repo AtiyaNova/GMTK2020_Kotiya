@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class BorderVines : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    float timer = 0, timeLimit = 2;
 
-    // Update is called once per frame
-    void Update()
+    public IEnumerator GrowVines()
     {
-        
+        timer = 0;
+
+        while (timer < timeLimit)
+        {
+            timer += Time.deltaTime;
+            if (timer >= timeLimit)
+            {
+                transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
+                PlannerDrag.Instance.SetPlanner(true);
+                print("done");
+                yield break;
+            }
+            yield return null;
+        }
     }
 }

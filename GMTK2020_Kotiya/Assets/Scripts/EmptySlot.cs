@@ -19,4 +19,10 @@ public class EmptySlot : MonoBehaviour
         activity = newActivity;
         Name.text = newActivity.name;
     }
+
+    public void ClearActivity()
+    {
+        activity = null;
+        Name.text = "Nothing";
+    }
 }
