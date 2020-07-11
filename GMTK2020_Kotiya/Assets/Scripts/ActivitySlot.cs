@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+//the slots representing each individual activity
 public class ActivitySlot : MonoBehaviour
          , IDragHandler
          , IEndDragHandler
@@ -14,7 +15,6 @@ public class ActivitySlot : MonoBehaviour
     private Text Name;
     private RectTransform rectTransform;
     private Vector2 originalPos;
-    private float yOffset = 60;
 
     void Start()
     {
@@ -44,5 +44,6 @@ public class ActivitySlot : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         collision.GetComponent<EmptySlot>().SetActivity(activity);
+        BeginDay.Instance.CheckSlots();
     }
 }

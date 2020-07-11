@@ -10,7 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9946a8261a2c9f54d958e1c9362c044a, type: 3}
-  m_Name: Walk
+  m_Name: Exercise
   m_EditorClassIdentifier: 
-  strActivityName: Walk
-  healAmount: 0
+  activityName: Exercise
+  healAmount: 5
+  message: 'You exercised. The endorphins make you happier. '

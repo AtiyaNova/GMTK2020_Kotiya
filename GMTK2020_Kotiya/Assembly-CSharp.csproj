@@ -66,11 +66,14 @@
     <Compile Include="Assets\Scripts\ActivitySlot.cs" />
     <Compile Include="Assets\Scripts\BeginDay.cs" />
     <Compile Include="Assets\Scripts\BorderVines.cs" />
+    <Compile Include="Assets\Scripts\ContextScript.cs" />
+    <Compile Include="Assets\Scripts\DragFX.cs" />
     <Compile Include="Assets\Scripts\EmptySlot.cs" />
     <Compile Include="Assets\Scripts\GameExit.cs" />
     <Compile Include="Assets\Scripts\PlannerDrag.cs" />
     <Compile Include="Assets\Scripts\Plant.cs" />
-    <Compile Include="Assets\Scripts\ScriptableObjects\Activity.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Activities\Activity.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\Plants\PlantType.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/atiya/Desktop/GMTK2020/GMTK2020_Kotiya/GMTK2020_Kotiya/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

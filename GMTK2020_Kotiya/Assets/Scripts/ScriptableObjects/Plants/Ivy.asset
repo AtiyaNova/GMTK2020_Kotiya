@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9946a8261a2c9f54d958e1c9362c044a, type: 3}
-  m_Name: Sleep
+  m_Script: {fileID: 11500000, guid: 4dc0f3afebdad0046a6ad641ff1fdf28, type: 3}
+  m_Name: Ivy
   m_EditorClassIdentifier: 
-  strActivityName: Sleep
-  healAmount: 0
+  plantName: Ivy
+  plantSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  growthAmount: 0.5

@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9946a8261a2c9f54d958e1c9362c044a, type: 3}
   m_Name: Medication
   m_EditorClassIdentifier: 
-  strActivityName: Medication
+  activityName: Medication
   healAmount: 0
+  message: You take your medication. It reduces stress.

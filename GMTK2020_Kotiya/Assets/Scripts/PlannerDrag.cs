@@ -5,18 +5,16 @@ using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 //Atiya Nova 2020
-//Used to drag the planner into view
+//Handles the logic for the planner menu
 public class PlannerDrag : MonoBehaviour
      , IDragHandler
      , IEndDragHandler
-     , IPointerEnterHandler
-     , IPointerExitHandler
 {
-    float yPos = -200f, xPos = 0, xZero = 83f, xLimit = 1200f, offset = 350f;
+    float yPos = -200f, xZero = 83f, xLimit = 1200f, offset = 350f;
     private RectTransform rectTransform;
 
     [SerializeField]
-    private Image image;
+    private GameObject image;
 
     //Singleton
     public static PlannerDrag Instance;
@@ -54,16 +52,6 @@ public class PlannerDrag : MonoBehaviour
             }
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        image.color = new Color(0.4f,0.4f,0.4f,1);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        image.color = Color.white;
-    }
-
     public void ResetPosition()
     {
         rectTransform.anchoredPosition = new Vector2(xZero, yPos);
@@ -72,6 +60,6 @@ public class PlannerDrag : MonoBehaviour
     public void SetPlanner(bool temp)
     {
         GetComponent<Collider2D>().enabled = temp;
-        image.gameObject.SetActive(temp);
+        image.SetActive(temp);
     }
 }

@@ -6,17 +6,24 @@ using UnityEngine;
 public class Activity : ScriptableObject
 {
     [SerializeField]
-    private string strActivityName;
+    private string activityName;
     [SerializeField]
     private float healAmount; //subject to change
+    [SerializeField]
+    private string message;
 
     public string GetName()
     {
-        return strActivityName;
+        return activityName;
     }
 
     public float GetHeal()
     {
         return healAmount;
+    }
+
+    public string GetMessage()
+    {
+        return message;
     }
 }
