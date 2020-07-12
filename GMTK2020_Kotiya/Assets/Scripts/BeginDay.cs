@@ -11,6 +11,13 @@ public enum ThePlants
     Depression
 }
 
+enum FaceTransitions
+{
+    Beginning,
+    Middle,
+    End
+}
+
 //Runs the logic for the plant growth based off of the player choices
 public class BeginDay : MonoBehaviour
 {
@@ -26,6 +33,12 @@ public class BeginDay : MonoBehaviour
     [SerializeField]
     private ContextScript context1, context2;
 
+    [SerializeField]
+    private SpriteRenderer baseFace;
+    [SerializeField]
+    private Sprite[] faces;
+
+    private FaceTransitions faceTransitions = FaceTransitions.Beginning;
     private const float timeLimit = 4, initialHeight = 0.5f;
 
     public BorderVines borderVines;
@@ -133,5 +146,28 @@ public class BeginDay : MonoBehaviour
         average /= 3;
 
         return average;
+    }
+
+    //changes the faces
+    public void SetMiddle()
+    {
+        print("works1?");
+        if (faceTransitions == FaceTransitions.Beginning)
+        {
+            print("helloooo");
+            faceTransitions = FaceTransitions.Middle;
+            baseFace.sprite = faces[1];
+        }
+    }
+
+    public void SetEnd()
+    {
+        print("works2?");
+        if (faceTransitions == FaceTransitions.Middle)
+        {
+            print("eyyy");
+            faceTransitions = FaceTransitions.End;
+            baseFace.sprite = faces[2];
+        }
     }
 }

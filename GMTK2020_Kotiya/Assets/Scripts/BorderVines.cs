@@ -34,6 +34,6 @@ public class BorderVines : MonoBehaviour
 
     void CalculateGrowthAmount()
     {
-        growthAmount = (BeginDay.Instance.AveragePlantGrowth()*0.3f);
+        growthAmount = (BeginDay.Instance.AveragePlantGrowth() * 0.7f);
     }
 }

@@ -7,15 +7,22 @@ public class Plant : MonoBehaviour
 {
     [SerializeField]
     private PlantType thePlant;
+
+    [SerializeField]
+    private float yStart;
+
     private SpriteRenderer theRenderer;
-    float timer = 0;
-    const float timeLimit = 4;
-    float growthAmount = 0;
+    private float timer = 0;
+    private const float timeLimit = 4;
+    private float growthAmount = 0;
+    private bool notLimit = true;
+    private string gameMiddle = "GameMiddle", gameEnd = "GameEnd";
 
     private void Start()
     {
         theRenderer = GetComponent<SpriteRenderer>();
         theRenderer.sprite = thePlant.GetSprite();
+        yStart = transform.position.y;
     }
 
     public IEnumerator GrowPlant()
@@ -25,13 +32,19 @@ public class Plant : MonoBehaviour
         while (timer < timeLimit)
         {
             timer += Time.deltaTime;
-            transform.position = new Vector3(transform.position.x, transform.position.y + (growthAmount * Time.deltaTime), transform.position.z);
+            transform.position = new Vector3(transform.position.x, GetY(), transform.position.z);
             if (timer >= timeLimit)
             {
                 yield break;
             }
             yield return null;
         }
+    }
+
+    float GetY()
+    {
+        float newY = transform.position.y + (growthAmount * Time.deltaTime);
+        return newY >= yStart && notLimit ? newY : transform.position.y;
     }
 
     //This resets the growth calculation
@@ -56,6 +69,14 @@ public class Plant : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("animoop");
+        if (collision.CompareTag(gameMiddle))
+        {
+            BeginDay.Instance.SetMiddle();
+        }
+        else if (collision.CompareTag(gameEnd))
+        {
+            BeginDay.Instance.SetEnd();
+            notLimit = false;
+        }
     }
 }
