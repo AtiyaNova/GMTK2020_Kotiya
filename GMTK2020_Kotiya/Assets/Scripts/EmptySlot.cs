@@ -7,28 +7,27 @@ using UnityEngine.UI;
 public class EmptySlot : MonoBehaviour
 {
     private Activity activity;
-    private Text Name;
-
-    private void Start()
-    {
-        Name = GetComponentInChildren<Text>();
-    }
 
     public void SetActivity(Activity newActivity)
     {
         activity = newActivity;
-        Name.text = newActivity.name;
+        BeginDay.Instance.CheckSlots();
     }
 
     public void ClearActivity()
     {
         activity = null;
-        Name.text = "Nothing";
+        BeginDay.Instance.CheckSlots();
     }
 
     public string DisplayMessage()
     {
         return activity.GetMessage();
+    }
+
+    public Activity GetActivity()
+    {
+        return activity;
     }
 
     public bool IsClear()

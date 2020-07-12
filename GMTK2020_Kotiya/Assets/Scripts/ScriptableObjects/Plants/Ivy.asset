@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Ivy
   m_EditorClassIdentifier: 
   plantName: Ivy
-  plantSprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  growthAmount: 0.5
+  plantSprite: {fileID: 21300000, guid: 7d88beb8b30749d46896eca6c9c0e063, type: 3}
+  growthAmount: 0.4
+  plantType: 1

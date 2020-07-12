@@ -14,7 +14,8 @@ public class ActivitySlot : MonoBehaviour
 
     private Text Name;
     private RectTransform rectTransform;
-    private Vector2 originalPos;
+    private Vector2 originalPos, newPos;
+    private bool overlap = false;
 
     void Start()
     {
@@ -37,13 +38,27 @@ public class ActivitySlot : MonoBehaviour
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition = originalPos;
+        if (!overlap) rectTransform.anchoredPosition = originalPos;
+        else transform.position = newPos;
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        collision.GetComponent<EmptySlot>().SetActivity(activity);
-        BeginDay.Instance.CheckSlots();
+        if (collision.GetComponent<EmptySlot>().IsClear())
+        {
+            overlap = true;
+            collision.GetComponent<EmptySlot>().SetActivity(activity);
+            BeginDay.Instance.CheckSlots();
+            newPos = collision.GetComponent<RectTransform>().position;
+        }
+        else overlap = false;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        overlap = false;
+        if (collision.GetComponent<EmptySlot>().GetActivity() == activity)
+            collision.GetComponent<EmptySlot>().ClearActivity();
     }
 }

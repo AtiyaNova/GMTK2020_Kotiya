@@ -12,6 +12,8 @@ public class PlantType : ScriptableObject
     private Sprite plantSprite;
     [SerializeField]
     private float growthAmount;
+    [SerializeField]
+    private ThePlants plantType; // this is what type of plant it is
 
     public string GetName()
     {
@@ -28,4 +30,8 @@ public class PlantType : ScriptableObject
         return growthAmount;
     }
 
+    public ThePlants GetPlantType()
+    {
+        return plantType;
+    }
 }

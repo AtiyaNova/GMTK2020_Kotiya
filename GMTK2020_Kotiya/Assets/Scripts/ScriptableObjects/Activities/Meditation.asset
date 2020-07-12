@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Meditation
   m_EditorClassIdentifier: 
   activityName: Meditation
-  healAmount: 0
+  healAmount: 0.1
   message: You meditate. It helps you feel calm
+  plantType: 2

@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//the activity types
+public enum ThePlants
+{
+    Anger,
+    Stress,
+    Depression
+}
 
 //Runs the logic for the plant growth based off of the player choices
 public class BeginDay : MonoBehaviour
@@ -16,7 +23,7 @@ public class BeginDay : MonoBehaviour
     [SerializeField]
     private ContextScript context1, context2;
 
-    private const float timeLimit = 4;
+    private const float timeLimit = 4, initialHeight = 0.5f;
 
     public BorderVines borderVines;
     public GameObject proceedBtn;
@@ -37,9 +44,23 @@ public class BeginDay : MonoBehaviour
 
     public void Proceed()
     {
-        StartCoroutine(borderVines.GrowVines());
         StartCoroutine(ShowContext());
 
+        //resets growth calculation
+        for (int i = 0; i < plants.Count; i++) plants[i].ResetGrowth();
+
+        //calculates growth
+        for (int i = 0; i < activitySlots.Count; i++)
+        {
+            for (int j = 0; j < plants.Count; j++)
+            {
+                plants[i].CalculateGrowthAmount(activitySlots[i].GetActivity());
+            }
+        }
+
+        StartCoroutine(borderVines.GrowVines());
+
+        //then grows the plants
         for (int i = 0; i < plants.Count; i++)
         {
             StartCoroutine(plants[i].GrowPlant());
@@ -88,5 +109,20 @@ public class BeginDay : MonoBehaviour
             proceedBtn.SetActive(true);
         }
         else proceedBtn.SetActive(false);
+    }
+
+    //this is to calculate how much the vines should grow by
+    public float AveragePlantGrowth()
+    {
+        float average = 0;
+
+        for (int i = 0; i < plants.Count; i++)
+        {
+            average += plants[i].GetGrowth();
+        }
+
+        average /= 3;
+
+        return average;
     }
 }

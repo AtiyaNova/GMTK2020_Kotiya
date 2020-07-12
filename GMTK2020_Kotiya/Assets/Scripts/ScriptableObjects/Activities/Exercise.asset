@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Exercise
   m_EditorClassIdentifier: 
   activityName: Exercise
-  healAmount: 5
-  message: 'You exercised. The endorphins make you happier. '
+  healAmount: 0.1
+  message: 'You exercise. The endorphins make you happier. '
+  plantType: 2

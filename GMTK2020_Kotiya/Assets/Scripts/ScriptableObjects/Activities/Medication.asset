@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Medication
   m_EditorClassIdentifier: 
   activityName: Medication
-  healAmount: 0
+  healAmount: 0.1
   message: You take your medication. It reduces stress.
+  plantType: 1

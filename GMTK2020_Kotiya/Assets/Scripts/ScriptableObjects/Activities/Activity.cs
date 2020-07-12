@@ -11,6 +11,8 @@ public class Activity : ScriptableObject
     private float healAmount; //subject to change
     [SerializeField]
     private string message;
+    [SerializeField]
+    private ThePlants plantType; //this is the plants that it affects
 
     public string GetName()
     {
@@ -25,5 +27,10 @@ public class Activity : ScriptableObject
     public string GetMessage()
     {
         return message;
+    }
+
+    public ThePlants GetTypes()
+    {
+        return plantType;
     }
 }

@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Walk
   m_EditorClassIdentifier: 
   activityName: Take a walk
-  healAmount: 0
+  healAmount: 0.1
   message: 'You take a walk. It calms you. '
+  plantType: 1
