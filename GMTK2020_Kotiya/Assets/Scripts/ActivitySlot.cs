@@ -8,11 +8,12 @@ using UnityEngine.EventSystems;
 public class ActivitySlot : MonoBehaviour
          , IDragHandler
          , IEndDragHandler
+     , IPointerEnterHandler
+     , IPointerExitHandler
 {
     [SerializeField]
     private Activity activity;
-
-    private Text Name;
+    private Image image;
     private RectTransform rectTransform;
     private Vector2 originalPos, newPos;
     private bool overlap = false;
@@ -21,13 +22,18 @@ public class ActivitySlot : MonoBehaviour
     {
         rectTransform = GetComponent<RectTransform>();
 
-        Name = GetComponentInChildren<Text>();
-        Name.text = activity.GetName();
+        image = GetComponent<Image>();
+        image.sprite = activity.GetImage();
 
         originalPos = rectTransform.anchoredPosition;
 
     }
 
+    public void ResetTransform()
+    {
+        rectTransform.anchoredPosition = originalPos;
+        overlap = false;
+    }
 
     //Drags to the slot
     public void OnDrag(PointerEventData eventData)
@@ -40,6 +46,16 @@ public class ActivitySlot : MonoBehaviour
     {
         if (!overlap) rectTransform.anchoredPosition = originalPos;
         else transform.position = newPos;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        image.color = new Color(0.3f, 0.3f, 0.3f, 1);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        image.color = Color.white;
     }
 
 
@@ -61,4 +77,6 @@ public class ActivitySlot : MonoBehaviour
         if (collision.GetComponent<EmptySlot>().GetActivity() == activity)
             collision.GetComponent<EmptySlot>().ClearActivity();
     }
+
+    
 }

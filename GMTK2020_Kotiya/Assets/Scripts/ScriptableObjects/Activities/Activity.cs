@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "New Activity", menuName = "Activity", order = 51)]
 public class Activity : ScriptableObject
 {
     [SerializeField]
-    private string activityName;
+    private Sprite image;
     [SerializeField]
     private float healAmount; //subject to change
     [SerializeField]
@@ -14,9 +15,9 @@ public class Activity : ScriptableObject
     [SerializeField]
     private ThePlants plantType; //this is the plants that it affects
 
-    public string GetName()
+    public Sprite GetImage()
     {
-        return activityName;
+        return image;
     }
 
     public float GetHeal()

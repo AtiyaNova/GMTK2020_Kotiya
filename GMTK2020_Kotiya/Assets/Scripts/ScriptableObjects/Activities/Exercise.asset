@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9946a8261a2c9f54d958e1c9362c044a, type: 3}
   m_Name: Exercise
   m_EditorClassIdentifier: 
-  activityName: Exercise
+  image: {fileID: 21300000, guid: e315a2dfeb13f0e4fbea734bc507d63d, type: 3}
   healAmount: 0.1
   message: 'You exercise. The endorphins make you happier. '
   plantType: 2

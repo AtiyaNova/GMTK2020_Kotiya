@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9946a8261a2c9f54d958e1c9362c044a, type: 3}
   m_Name: Eat
   m_EditorClassIdentifier: 
-  activityName: Eat
+  image: {fileID: 21300000, guid: 80d7c7f6a0a41894da58fc3f33cf48b5, type: 3}
   healAmount: 0.1
   message: You eat. It helps you calm down.
   plantType: 1

@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\Plant.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Activities\Activity.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Plants\PlantType.cs" />
+    <Compile Include="Assets\Scripts\Tab.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/atiya/Desktop/GMTK2020/GMTK2020_Kotiya/GMTK2020_Kotiya/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>

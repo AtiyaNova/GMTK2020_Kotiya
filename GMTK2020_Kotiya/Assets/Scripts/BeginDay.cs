@@ -15,6 +15,9 @@ public enum ThePlants
 public class BeginDay : MonoBehaviour
 {
     [SerializeField]
+    private List<ActivitySlot> activities;
+
+    [SerializeField]
     private List<EmptySlot> activitySlots;
 
     [SerializeField]
@@ -46,6 +49,11 @@ public class BeginDay : MonoBehaviour
     {
         StartCoroutine(ShowContext());
 
+        for (int i =  0; i < activities.Count;i++)
+        {
+            activities[i].ResetTransform();
+        }
+
         //resets growth calculation
         for (int i = 0; i < plants.Count; i++) plants[i].ResetGrowth();
 
@@ -72,6 +80,7 @@ public class BeginDay : MonoBehaviour
         for (int i = 0; i < activitySlots.Count; i++)
         {
             activitySlots[i].ClearActivity();
+            
         }
 
         proceedBtn.SetActive(false);

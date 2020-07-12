@@ -118,7 +118,7 @@ ScriptsOnlyBuild:
     className: CanvasScaler
   - hash:
       serializedVersion: 2
-      Hash: c31ede807f6bb54bbfcaa8840dc617a0
+      Hash: abdcc060f467a4b0a82d1f2c3a1702a7
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: BeginDay
@@ -322,7 +322,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: 762f1441dfbfab14d789fa3a51a799ab
+      Hash: a27eb144289f1ed47d6d4db5cfb90cb8
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Activity

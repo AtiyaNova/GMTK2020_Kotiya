@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9946a8261a2c9f54d958e1c9362c044a, type: 3}
   m_Name: Walk
   m_EditorClassIdentifier: 
-  activityName: Take a walk
+  image: {fileID: 21300000, guid: 8ab7fd427fb43534daba159456261726, type: 3}
   healAmount: 0.1
   message: 'You take a walk. It calms you. '
-  plantType: 1
+  plantType: 0
