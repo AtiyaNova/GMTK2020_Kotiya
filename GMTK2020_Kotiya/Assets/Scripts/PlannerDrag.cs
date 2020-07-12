@@ -9,6 +9,7 @@ using UnityEngine.UI;
 public class PlannerDrag : MonoBehaviour
      , IDragHandler
      , IEndDragHandler
+    , IBeginDragHandler
 {
     float yPos = -200f, xZero = 83f, xLimit = 1200f, offset = 350f;
     private RectTransform rectTransform;
@@ -28,6 +29,11 @@ public class PlannerDrag : MonoBehaviour
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+        GameSoundManager.Instance.BookDrag();
     }
 
     //Drags the notebook in and out of view

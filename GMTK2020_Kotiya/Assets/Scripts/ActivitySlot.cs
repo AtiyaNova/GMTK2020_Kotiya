@@ -10,6 +10,7 @@ public class ActivitySlot : MonoBehaviour
          , IEndDragHandler
      , IPointerEnterHandler
      , IPointerExitHandler
+     , IPointerClickHandler
 {
     [SerializeField]
     private Activity activity;
@@ -58,6 +59,10 @@ public class ActivitySlot : MonoBehaviour
         image.color = Color.white;
     }
 
+    public void OnPointerClick(PointerEventData pointerEventData)
+    {
+        GameSoundManager.Instance.Click();
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

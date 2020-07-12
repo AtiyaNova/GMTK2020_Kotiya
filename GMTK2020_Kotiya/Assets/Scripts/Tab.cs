@@ -35,5 +35,6 @@ public class Tab : MonoBehaviour
     {
         thisPage.SetActive(true);
         otherPage.SetActive(false);
+        GameSoundManager.Instance.PlayPageFlip();
     }
 }

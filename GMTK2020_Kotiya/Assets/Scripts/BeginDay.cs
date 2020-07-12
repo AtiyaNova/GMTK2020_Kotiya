@@ -40,6 +40,7 @@ public class BeginDay : MonoBehaviour
 
     private FaceTransitions faceTransitions = FaceTransitions.Beginning;
     private const float timeLimit = 4, initialHeight = 0.5f;
+    private int plantsAtEnd = 0;
 
     public BorderVines borderVines;
     public GameObject proceedBtn;
@@ -60,7 +61,7 @@ public class BeginDay : MonoBehaviour
 
     public void Proceed()
     {
-        StartCoroutine(ShowContext());
+        GameSoundManager.Instance.Click();
 
         for (int i =  0; i < activities.Count;i++)
         {
@@ -75,10 +76,11 @@ public class BeginDay : MonoBehaviour
         {
             for (int j = 0; j < plants.Count; j++)
             {
-                plants[i].CalculateGrowthAmount(activitySlots[i].GetActivity());
+                plants[j].CalculateGrowthAmount(activitySlots[i]);
             }
         }
 
+        StartCoroutine(ShowContext());
         StartCoroutine(borderVines.GrowVines());
 
         //then grows the plants
@@ -105,8 +107,8 @@ public class BeginDay : MonoBehaviour
     {
         float timer = 0;
 
-        string msg1 = activitySlots[0].DisplayMessage(),
-            msg2 = activitySlots[1].DisplayMessage(); 
+        string msg1 = activitySlots[0].DisplayMessage();
+        string msg2 = activitySlots[1].DisplayMessage(); 
 
         context1.PlayContext(msg1);
 
@@ -151,10 +153,8 @@ public class BeginDay : MonoBehaviour
     //changes the faces
     public void SetMiddle()
     {
-        print("works1?");
         if (faceTransitions == FaceTransitions.Beginning)
         {
-            print("helloooo");
             faceTransitions = FaceTransitions.Middle;
             baseFace.sprite = faces[1];
         }
@@ -162,10 +162,10 @@ public class BeginDay : MonoBehaviour
 
     public void SetEnd()
     {
-        print("works2?");
-        if (faceTransitions == FaceTransitions.Middle)
+        plantsAtEnd++;
+        if (faceTransitions == FaceTransitions.Middle && plantsAtEnd>=2)
         {
-            print("eyyy");
+
             faceTransitions = FaceTransitions.End;
             baseFace.sprite = faces[2];
         }

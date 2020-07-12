@@ -15,4 +15,6 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 68bc658942c4f294b86da1f5d8683167, type: 3}
   healAmount: 0.05
   message: You tried to sleep. You feel more calm.
+  changedMessage: 'You tried to sleep, but to no avail. '
   plantType: 0
+  effective: 1

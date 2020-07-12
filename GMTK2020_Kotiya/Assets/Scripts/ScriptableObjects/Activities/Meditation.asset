@@ -15,4 +15,6 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: 55aa2c71da1bee84590a59a2378e2782, type: 3}
   healAmount: 0.05
   message: You meditate. It helps you feel relaxed.
+  changedMessage: 'You meditate, but to no avail. '
   plantType: 1
+  effective: 1

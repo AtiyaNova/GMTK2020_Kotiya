@@ -8,6 +8,16 @@ public class EmptySlot : MonoBehaviour
 {
     private Activity activity;
 
+    public void SetEffective(bool temp)
+    {
+        activity.SetEffect(temp);
+    }
+
+    public void ReplaceActivity(Activity newActivity)
+    {
+        activity = newActivity;
+    }
+
     public void SetActivity(Activity newActivity)
     {
         activity = newActivity;
@@ -22,13 +32,15 @@ public class EmptySlot : MonoBehaviour
 
     public string DisplayMessage()
     {
-        return activity.GetMessage();
+        if (activity.StillEffective()) return activity.GetMessage();
+        else return activity.GetChangedMessage();
     }
 
     public Activity GetActivity()
     {
         return activity;
     }
+
 
     public bool IsClear()
     {

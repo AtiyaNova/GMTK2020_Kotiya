@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: e047af92855e7b84fbb607530ea8037e, type: 3}
   healAmount: 0.05
-  message: You take your medication. It makes your marginally happier.
+  message: You take your medication. It makes you marginally happier.
+  changedMessage: 'You take your medication, but to no avail. '
   plantType: 2
+  effective: 0

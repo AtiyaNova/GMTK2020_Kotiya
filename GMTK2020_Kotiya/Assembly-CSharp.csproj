@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\DragFX.cs" />
     <Compile Include="Assets\Scripts\EmptySlot.cs" />
     <Compile Include="Assets\Scripts\GameExit.cs" />
+    <Compile Include="Assets\Scripts\GameSoundManager.cs" />
     <Compile Include="Assets\Scripts\PlannerDrag.cs" />
     <Compile Include="Assets\Scripts\Plant.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\Activities\Activity.cs" />

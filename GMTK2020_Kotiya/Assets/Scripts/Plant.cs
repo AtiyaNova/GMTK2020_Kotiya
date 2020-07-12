@@ -54,11 +54,13 @@ public class Plant : MonoBehaviour
     }
 
     //This calculates how much it should grow by
-    public void CalculateGrowthAmount(Activity theActivity)
+    public void CalculateGrowthAmount(EmptySlot theActivity)
     {
-        if (theActivity.GetTypes() == thePlant.GetPlantType())
+        //clean this up
+        if (theActivity.GetActivity().GetTypes() == thePlant.GetPlantType())
         {
-            growthAmount -= theActivity.GetHeal();
+            theActivity.SetEffective(notLimit);
+            growthAmount -= theActivity.GetActivity().GetHeal();
         }  
     }
 
@@ -77,6 +79,7 @@ public class Plant : MonoBehaviour
         {
             BeginDay.Instance.SetEnd();
             notLimit = false;
+
         }
     }
 }
