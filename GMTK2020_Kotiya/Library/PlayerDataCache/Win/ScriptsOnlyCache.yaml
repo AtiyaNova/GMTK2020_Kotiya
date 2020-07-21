@@ -29,7 +29,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -85,27 +84,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10416}
     - Class: 114
-      Script: {instanceID: 10648}
+      Script: {instanceID: 10424}
     - Class: 114
-      Script: {instanceID: 11080}
+      Script: {instanceID: 10650}
     - Class: 114
-      Script: {instanceID: 11122}
+      Script: {instanceID: 11082}
     - Class: 114
-      Script: {instanceID: 11142}
+      Script: {instanceID: 11124}
     - Class: 114
-      Script: {instanceID: 11200}
+      Script: {instanceID: 11144}
     - Class: 114
-      Script: {instanceID: 11212}
+      Script: {instanceID: 11202}
     - Class: 114
-      Script: {instanceID: 11378}
+      Script: {instanceID: 11214}
     - Class: 114
-      Script: {instanceID: 11442}
+      Script: {instanceID: 11380}
     - Class: 114
-      Script: {instanceID: 11502}
+      Script: {instanceID: 11444}
     - Class: 114
-      Script: {instanceID: 11550}
+      Script: {instanceID: 11504}
     - Class: 114
-      Script: {instanceID: 25802}
+      Script: {instanceID: 11552}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -345,6 +344,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Activity
+  - hash:
+      serializedVersion: 2
+      Hash: 0db5f7791b19ae7f1709e79ee6681dad
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: GameSoundManager
   - hash:
       serializedVersion: 2
       Hash: b3ab2106268377ffe25dd18ac23dca28
@@ -615,12 +620,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 0db5f7791b19ae7f1709e79ee6681dad
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: GameSoundManager
   platform: 5
   scenePathNames:
   - Assets/Scenes/SampleScene.unity

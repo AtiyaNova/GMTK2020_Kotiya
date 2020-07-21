@@ -7,7 +7,8 @@ public class GameSoundManager : MonoBehaviour
 {
     //Singleton
     public static GameSoundManager Instance;
-    public AudioSource pageFlipping, bookDrag, click; 
+    [SerializeField]
+    private AudioSource pageFlipping, bookDrag, bookClose, click; 
 
     void Awake()
     {
@@ -20,12 +21,17 @@ public class GameSoundManager : MonoBehaviour
         pageFlipping.Play();
     }
 
-    public void BookDrag()
+    public void PlayBookDrag()
     {
         bookDrag.Play();
     }
 
-    public void Click()
+    public void PlayBookClose()
+    {
+        bookClose.Play();
+    }
+
+    public void PlayClick()
     {
         click.Play();
     }

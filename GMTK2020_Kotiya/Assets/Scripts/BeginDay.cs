@@ -61,7 +61,7 @@ public class BeginDay : MonoBehaviour
 
     public void Proceed()
     {
-        GameSoundManager.Instance.Click();
+        GameSoundManager.Instance.PlayBookClose();
 
         for (int i =  0; i < activities.Count;i++)
         {

@@ -11,7 +11,7 @@ public class PlannerDrag : MonoBehaviour
      , IEndDragHandler
     , IBeginDragHandler
 {
-    float yPos = -200f, xZero = 83f, xLimit = 1200f, offset = 350f;
+    float yPos = 0, xZero = 0, xLimit = 530, offset = 350f, dragLimit = 600;
     private RectTransform rectTransform;
 
     [SerializeField]
@@ -29,17 +29,19 @@ public class PlannerDrag : MonoBehaviour
     private void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+        xZero = rectTransform.anchoredPosition.x;
+        yPos = rectTransform.anchoredPosition.y;
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        GameSoundManager.Instance.BookDrag();
+        GameSoundManager.Instance.PlayBookDrag();
     }
 
     //Drags the notebook in and out of view
     public void OnDrag(PointerEventData eventData)
     {
-        if (eventData.position.x < 1000f)
+        if (eventData.position.x < dragLimit)
         rectTransform.anchoredPosition = new Vector2(eventData.position.x, yPos);
     }
 

@@ -61,7 +61,7 @@ public class ActivitySlot : MonoBehaviour
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
-        GameSoundManager.Instance.Click();
+        GameSoundManager.Instance.PlayClick();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
