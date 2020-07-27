@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Exercise
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: e315a2dfeb13f0e4fbea734bc507d63d, type: 3}
-  healAmount: 0.05
+  healAmount: 0.07
   message: 'You exercise. The endorphins make you happier. '
   changedMessage: 'You exercise, but to no avail. '
   plantType: 2

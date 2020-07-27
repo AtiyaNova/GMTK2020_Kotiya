@@ -78,6 +78,7 @@ public class Plant : MonoBehaviour
         else if (collision.CompareTag(gameEnd))
         {
             BeginDay.Instance.SetEnd();
+            BeginDay.Instance.ChangeTutorial(thePlant.GetPlantType());
             notLimit = false;
 
         }

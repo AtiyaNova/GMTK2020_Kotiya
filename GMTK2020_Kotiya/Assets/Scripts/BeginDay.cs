@@ -21,26 +21,22 @@ enum FaceTransitions
 //Runs the logic for the plant growth based off of the player choices
 public class BeginDay : MonoBehaviour
 {
-    [SerializeField]
-    private List<ActivitySlot> activities;
-
-    [SerializeField]
-    private List<EmptySlot> activitySlots;
-
-    [SerializeField]
-    private List<Plant> plants;
-
-    [SerializeField]
-    private ContextScript context1, context2;
-
-    [SerializeField]
-    private SpriteRenderer baseFace;
-    [SerializeField]
-    private Sprite[] faces;
+    [SerializeField] private List<ActivitySlot> activities;
+    [SerializeField] private List<EmptySlot> activitySlots;
+    [SerializeField] private List<Plant> plants;
+    [SerializeField] private ContextScript[] context;
+    [SerializeField] private SpriteRenderer baseFace;
+    [SerializeField] private Sprite[] faces;
+    [SerializeField] private Tab tutorialTab;
+    [SerializeField] private UIChange[] theChanges;
+    [SerializeField] private Text credits;
+    [SerializeField] private RawImage vignette;
 
     private FaceTransitions faceTransitions = FaceTransitions.Beginning;
-    private const float timeLimit = 4, initialHeight = 0.5f;
+    private const float timeLimit = 4;
     private int plantsAtEnd = 0;
+    private string[] messages;
+    private Color origCredits, origVignette;
 
     public BorderVines borderVines;
     public GameObject proceedBtn;
@@ -57,6 +53,12 @@ public class BeginDay : MonoBehaviour
     private void Start()
     {
         proceedBtn.SetActive(false);
+        messages = new string[context.Length];
+        tutorialTab.FlipPage();
+        origCredits = credits.color;
+        origVignette = vignette.color;
+        credits.color = Color.clear;
+        vignette.color = Color.clear;
     }
 
     public void Proceed()
@@ -107,23 +109,24 @@ public class BeginDay : MonoBehaviour
     {
         float timer = 0;
 
-        string msg1 = activitySlots[0].DisplayMessage();
-        string msg2 = activitySlots[1].DisplayMessage(); 
+        for (int i = 0; i < activitySlots.Count; i++)
+        {
+            messages[i] = activitySlots[i].DisplayMessage();
+            context[i].StopContext();
+        }
 
-        context1.PlayContext(msg1);
+        context[0].PlayContext(messages[0]);
 
         while (timer < timeLimit)
         {
             timer += Time.deltaTime;
-            if (timer >= (timeLimit/2) && context2.IsClear())
+            if (timer >= (timeLimit/2) && context[1].IsClear())
             {
-                context2.PlayContext(msg2);
+                context[1].PlayContext(messages[1]);
             }
             yield return null;
         }
 
-        context1.StopContext();
-        context2.StopContext();
     }
 
     public void CheckSlots()
@@ -165,9 +168,46 @@ public class BeginDay : MonoBehaviour
         plantsAtEnd++;
         if (faceTransitions == FaceTransitions.Middle && plantsAtEnd>=2)
         {
-
             faceTransitions = FaceTransitions.End;
             baseFace.sprite = faces[2];
+        }
+        if (plantsAtEnd == 3)
+        {
+            StartCoroutine(FadeInCredits());
+            StartCoroutine(FadeVignette());
+        }
+    }
+
+    public void ChangeTutorial(ThePlants type)
+    {
+        for (int i = 0; i < theChanges.Length;i++)
+        {
+            if (theChanges[i].GetPlantType() == type)
+            {
+                theChanges[i].ActivateChange();
+            }
+        }
+        tutorialTab.FlipPage();
+    }
+
+    private IEnumerator FadeVignette()
+    {
+        float time = 2;
+        Color startCol = vignette.color;
+        for (float t = 0.01f; t < time; t += Time.deltaTime)
+        {
+            vignette.color = Color.Lerp(startCol, origVignette, Mathf.Min(1, t / time));
+            yield return null;
+        }
+    }
+
+    private IEnumerator FadeInCredits()
+    {
+        float time = 2;
+        for (float t = 0.01f; t < time; t += Time.deltaTime)
+        {
+            credits.color = Color.Lerp(Color.clear, origCredits, Mathf.Min(1, t / time));
+            yield return null;
         }
     }
 }

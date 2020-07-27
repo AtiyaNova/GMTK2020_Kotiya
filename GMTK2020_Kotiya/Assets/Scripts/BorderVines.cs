@@ -7,7 +7,7 @@ public class BorderVines : MonoBehaviour
 {
     float timer = 0, growthAmount = 0;
     const float timeLimit = 4;
-    Vector3 finalSize = new Vector3(0.5f, 0.5f, 0.5f);
+    Vector3 finalSize = new Vector3(2.18f, 2.18f, 2.18f);
 
     public IEnumerator GrowVines()
     {
@@ -34,6 +34,6 @@ public class BorderVines : MonoBehaviour
 
     void CalculateGrowthAmount()
     {
-        growthAmount = (BeginDay.Instance.AveragePlantGrowth() * 0.7f);
+        growthAmount = BeginDay.Instance.AveragePlantGrowth()*1.2f;
     }
 }

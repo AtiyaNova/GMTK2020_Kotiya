@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9946a8261a2c9f54d958e1c9362c044a, type: 3}
+  m_Name: Meditate
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 55aa2c71da1bee84590a59a2378e2782, type: 3}
+  healAmount: 0.07
+  message: You meditate. It helps you feel relaxed.
+  changedMessage: 'You meditate, but to no avail. '
+  plantType: 1
+  effective: 1

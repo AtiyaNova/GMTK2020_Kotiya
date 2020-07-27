@@ -11,7 +11,7 @@ public class PlannerDrag : MonoBehaviour
      , IEndDragHandler
     , IBeginDragHandler
 {
-    float yPos = 0, xZero = 0, xLimit = 530, offset = 350f, dragLimit = 600;
+    float yPos = 0, xZero = 0, xLimit = 510, offset = 350f, dragLimit = 550;
     private RectTransform rectTransform;
 
     [SerializeField]

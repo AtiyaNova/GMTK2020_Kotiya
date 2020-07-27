@@ -33,8 +33,13 @@ public class Tab : MonoBehaviour
 
     public void OnPointerClick(PointerEventData pointerEventData)
     {
+        FlipPage();
+        GameSoundManager.Instance.PlayPageFlip();
+    }
+
+    public void FlipPage()
+    {
         thisPage.SetActive(true);
         otherPage.SetActive(false);
-        GameSoundManager.Instance.PlayPageFlip();
     }
 }
