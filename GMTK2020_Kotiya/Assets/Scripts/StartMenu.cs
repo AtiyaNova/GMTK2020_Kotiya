@@ -10,7 +10,7 @@ public class StartMenu : MonoBehaviour
 
     private void Start()
     {
-        GameUI.SetActive(false);
+        BeginGame();
     }
 
     public void BeginGame()
